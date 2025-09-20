@@ -5,7 +5,7 @@ local services = setmetatable({}, {
     __index = function(t, k) return game:GetService(k) end
 })
 local mouse = services.Players.LocalPlayer:GetMouse()
--- 优化配色：更柔和的深色调+清新 accent，降低视觉疲劳
+-- 优化配色：更柔和的深色调+清新accent，降低视觉疲劳
 local COLORS = {
     MAIN = Color3.fromRGB(25, 28, 35),
     BACKGROUND = Color3.fromRGB(32, 36, 45),
@@ -56,7 +56,7 @@ function Ripple(obj)
         )
         
         -- 分阶段动画：先快速扩散+淡入，再缓慢淡出
-        Tween(Ripple, {duration = 0.25, style = "Circ", dir = "Out"}, {
+        Tween(Ripple, {duration = 0.25, style = "Quad", dir = "Out"}, {  -- 将Circ改为Quad
             Size = UDim2.new(0, rippleSize, 0, rippleSize),
             ImageTransparency = 0.4
         })
@@ -316,20 +316,20 @@ function library.new(name)
         if visible == nil then visible = not Main.Visible end
         Main.Visible = true
         if visible then
-            Tween(Main, {duration = 0.3, style = "Circ"}, {
+            Tween(Main, {duration = 0.3, style = "Quad"}, {
                 Size = UDim2.new(0, 572, 0, 353),
                 Transparency = 0
             })
-            Tween(OuterShadow, {duration = 0.3, style = "Circ"}, {
+            Tween(OuterShadow, {duration = 0.3, style = "Quad"}, {
                 Size = UDim2.new(1, 20, 1, 20),
                 ImageTransparency = 0.4
             })
         else
-            Tween(Main, {duration = 0.25, style = "Circ"}, {
+            Tween(Main, {duration = 0.25, style = "Quad"}, {
                 Size = UDim2.new(0, 0, 0, 0),
                 Transparency = 1
             })
-            Tween(OuterShadow, {duration = 0.25, style = "Circ"}, {
+            Tween(OuterShadow, {duration = 0.25, style = "Quad"}, {
                 Size = UDim2.new(0, 0, 0, 0),
                 ImageTransparency = 1
             })
@@ -348,11 +348,11 @@ function library.new(name)
     OuterShadow.Size = UDim2.new(0, 0, 0, 0)
     OuterShadow.ImageTransparency = 1
     Main.Visible = true
-    Tween(Main, {duration = 0.5, style = "Circ", dir = "Out"}, {
+    Tween(Main, {duration = 0.5, style = "Quad", dir = "Out"}, {
         Size = UDim2.new(0, 572, 0, 353),
         Transparency = 0
     })
-    Tween(OuterShadow, {duration = 0.5, style = "Circ", dir = "Out"}, {
+    Tween(OuterShadow, {duration = 0.5, style = "Quad", dir = "Out"}, {
         Size = UDim2.new(1, 20, 1, 20),
         ImageTransparency = 0.4
     })
@@ -770,10 +770,10 @@ function library.new(name)
                         Tween(ToggleSwitch, {duration = 0.2, style = "Quad"}, {
                             BackgroundColor3 = state and COLORS.ACCENT or Color3.fromRGB(80, 80, 80)
                         })
-                        Tween(ToggleKnob, {duration = 0.2, style = "Circ", dir = "Out"}, {
+                        Tween(ToggleKnob, {duration = 0.2, style = "Quad", dir = "Out"}, {
                             Position = UDim2.new(0, state and 26 or 2, 0, 1)
                         })
-                        Tween(KnobShadow, {duration = 0.2, style = "Circ", dir = "Out"}, {
+                        Tween(KnobShadow, {duration = 0.2, style = "Quad", dir = "Out"}, {
                             Position = UDim2.new(0, state and 0 or 0, 0, 1)
                         })
                         
